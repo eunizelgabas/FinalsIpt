@@ -1,6 +1,5 @@
 @extends('base')
 
-{{-- @include('_navbar') --}}
 @section('content')
 <section class="py-3 py-md-5 py-xl-8">
     <div class="container">
@@ -69,7 +68,7 @@
                   </div>
                   <div class="col-12">
                     <div class="d-grid">
-                      <button class="btn btn-lg" type="submit" style="background-color: #142f5d; color:#ffff">Log in now</button>
+                      <button class="btn btn-lg" type="submit" style="background-color: #142f5d; color:#ffff">Log in </button>
                     </div>
                   </div>
                 </div>

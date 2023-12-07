@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,9 @@ Route::middleware(['auth','verified'])->group (function(){
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
+
+    Route::get('/services', [ServiceController::class, 'index']);
+    Route::get('/services/create', [ServiceController::class, 'create']);
 
 
 });
