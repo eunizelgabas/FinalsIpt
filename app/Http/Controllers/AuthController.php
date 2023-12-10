@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Jobs\CustomerJob;
 use App\Jobs\EmailVerification;
+use App\Models\Appointment;
+use App\Models\Patient;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -65,7 +69,8 @@ class AuthController extends Controller
             'password'          => bcrypt($request->password),
             'remember_token'     => $token
         ]);
-
+        $adminRole = Role::where('name', 'admin')->first();
+        $user->assignRole($adminRole);
         EmailVerification::dispatch($user);
 
         return redirect('/')->with('message', ' Your account has been created. Please check your email for the verification link.');
@@ -96,8 +101,10 @@ class AuthController extends Controller
 
     public function dashboard(){
         $user = auth()->user();
-        $regUser = User::all();
-        return view('dashboard', compact('user', 'regUser'));
+        $appointment = Appointment::count();
+        $service = Service::count();
+        $patient = Patient::count();
+        return view('dashboard', compact('patient', 'service', 'appointment', 'user'));
     }
 
 }
