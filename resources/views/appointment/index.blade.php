@@ -108,7 +108,7 @@
                                     <td class="px-5 py-3 bg-white text-sm">
                                         <p class="text-xs uppercase px-2 py-1 text-center rounded-full w-50 border font-bold first-letter
                                         @if($app->status == "Pending")
-                                            text-green-900 bg-green-400
+                                            text-green-800 bg-green-400
                                         @elseif($app->status == "Accepted")
                                             text-blue-900 bg-blue-400
                                         @elseif($app->status == "Cancelled")

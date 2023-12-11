@@ -101,7 +101,14 @@ class AuthController extends Controller
 
     public function dashboard(){
         $user = auth()->user();
-        $appointment = Appointment::count();
+        // $appointment = Appointment::count();
+        if (Auth::user()->hasRole('patient')) {
+            // User has the role of "patient"
+            $appointment = Appointment::where('pat_id', Auth::user()->patient->id)->count();
+        } else {
+            // User does not have the role of "patient" (count all appointments)
+            $appointment = Appointment::count();
+        }
         $service = Service::count();
         $patient = Patient::count();
         return view('dashboard', compact('patient', 'service', 'appointment', 'user'));

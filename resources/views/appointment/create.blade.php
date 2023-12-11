@@ -14,12 +14,6 @@
         <div class="sm:col-span-2">
             <label for="pat_id" class="block text-sm font-semibold leading-6 text-gray-900">Patient Name</label>
             <div class="mt-2.5">
-                {{-- <select id="pat_id" name="pat_id" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
-                    <option disabled selected>Choose a Patient</option>
-                    @foreach($patient as $pat)
-                                <option value="{{ $pat->id }}">{{ $pat->user->name }}</option>
-                             @endforeach
-                    </select> --}}
                     @if(auth()->user()->hasRole('patient'))
             <!-- Show the name of the logged-in patient -->
             <input type="text" value="{{ auth()->user()->name }}" readonly class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 bg-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
