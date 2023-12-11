@@ -38,6 +38,43 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="sm:col-span-2">
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" name="address" id="address" placeholder="name@example.com" required>
+                                        <label for="address" class="form-label">Address</label>
+                                        @error('address')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    @error('address')
+                                      <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                                      @enderror
+                                </div>
+                                <div class="sm:col-span-2">
+                                {{-- <label for="gender" class="block text-sm font-semibold leading-6 text-gray-900">Gender</label> --}}
+                                <div class="form-floating mb-3">
+                                    <select type="text" class="form-control" name="gender" id="gender" placeholder="name@example.com" required>
+                                        <option disabled selected>Choose a gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    <label for="gender" class="form-label">Gender</label>
+                                    @error('gender')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                {{-- <div class="mt-2.5">
+                                    <select id="gender" name="gender" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                        <option disabled selected>Choose a gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        </select>
+                                </div> --}}
+                                @error('gender')
+                                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                                    @enderror
+                                </div>
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
@@ -63,13 +100,6 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="row">
-                                <div class="col-12">
-                                    <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end mt-4">
-                                        <a href="#!">Forgot password</a>
-                                    </div>
-                                </div>
-                        </div>
                     </div>
                 </div>
             </div>

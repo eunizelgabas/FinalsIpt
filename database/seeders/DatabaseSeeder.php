@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Administrator',
+            'email' => 'admin@example.com',
             'remember_token' => Str::random(10), // Generating a random token
             'email_verified_at' => now(),
             'password' => Hash::make('password123'), // Correcting the bcrypt function

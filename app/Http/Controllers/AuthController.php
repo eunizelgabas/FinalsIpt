@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserLog;
 use App\Jobs\CustomerJob;
 use App\Jobs\EmailVerification;
 use App\Models\Appointment;
@@ -59,6 +60,7 @@ class AuthController extends Controller
             'name'      => 'required|string',
             'email'     => 'required|email|unique:users',
             'password'  => 'required|confirmed|string|min:6'
+
         ]);
 
         $token = Str::random(24);
@@ -69,9 +71,18 @@ class AuthController extends Controller
             'password'          => bcrypt($request->password),
             'remember_token'     => $token
         ]);
-        $adminRole = Role::where('name', 'admin')->first();
-        $user->assignRole($adminRole);
+        $patient = new Patient([
+            'address' => $request->input('address'),
+            'gender' => $request->input('gender'),
+        ]);
+        $user->patient()->save($patient);
+
+        $patientRole = Role::where('name', 'patient')->first();
+        $user->assignRole($patientRole);
         EmailVerification::dispatch($user);
+
+        $log_entry = $user->name . " registered in the system with the id# ". $patient->id;
+        event(new UserLog($log_entry));
 
         return redirect('/')->with('message', ' Your account has been created. Please check your email for the verification link.');
     }

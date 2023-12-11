@@ -5,7 +5,7 @@
 
 <div class="bg-white px-6 py-12 sm:py-24 lg:px-8">
     <div class="mx-auto max-w-xl flex flex-col items-center justify-center text-center">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Med U Clinic</h1>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-blue-500">Med U Clinic</h1>
       <p class="mt-3 text-lg text-gray-600">Appointment Creation Form.</p>
     </div>
     <form  method="POST" action="{{ route('appointment.store') }}" class="mx-auto mt-5 max-w-xl sm:mt-20">

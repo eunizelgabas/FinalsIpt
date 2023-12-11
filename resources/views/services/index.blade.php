@@ -24,9 +24,13 @@
                 </div>
             @endif
 
+            @if(auth()->user()->hasRole('admin'))
                 <a href="/services/create" type="button" class="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md text-white font-normal tracking-wide cursor-pointer" >
                     <i class="fa-solid fa-plus"></i> Create Service
                 </a>
+            @endif
+
+
 
             </div>
         </div>
