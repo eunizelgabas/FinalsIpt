@@ -24,9 +24,6 @@
                 </div>
             @endif
 
-                <a href="/appointment/create" type="button" class="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md text-white font-normal tracking-wide cursor-pointer" >
-                    <i class="fa-solid fa-plus"></i> Create Appointment
-                </a>
 
             </div>
         </div>

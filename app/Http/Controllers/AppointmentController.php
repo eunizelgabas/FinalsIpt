@@ -42,62 +42,6 @@ class AppointmentController extends Controller
         ]);
     }
 
-    // public function store(Request $request)
-    // {
-    //     $user = Auth::user();
-
-    //     $data = $request->validate([
-    //         'serv_id' => 'required',
-    //         'date'    => 'required|date|after_or_equal:today',
-    //         'time'    => 'required|date_format:H:i',
-    //         'status'  => 'string'
-    //     ]);
-
-    //     // Check if the logged-in user has the role "patient"
-    //     if ($user->hasRole('patient')) {
-    //         // If yes, use the user's associated 'pat_id'
-    //         $data['pat_id'] = $user->patient->id; // Adjust accordingly based on your relationship
-    //     } else {
-    //         // If not, set it to some default value or handle it based on your logic
-    //         $data['pat_id'] = $request->input('pat_id'); // Change this to your default 'pat_id' or handle accordingly
-    //         $data['status'] = 'Accepted';
-    //     }
-
-    //  $appointment =  Appointment::create($data);
-    //  if ($user->hasRole('patient')) {
-    //     $log_entry = Auth::user()->name . " requested an appointment with the id# ". $appointment->id;
-    //     event(new UserLog($log_entry));
-    //  }else{
-    //     $log_entry = Auth::user()->name . " created an appointment with ". $appointment->patient->user->name. " with the id# ". $appointment->id;
-    //     event(new UserLog($log_entry));
-    //  }
-
-    //  if ($user->hasRole('admin')) {
-    //     $patient = $appointment->patient;
-    //     $user = $patient->user;
-
-    //     $appointmentData = [
-    //         'body' => "Hi $user->name ,",
-    //         'appointmentBody' => "Just a friendly that we have an upcoming appointment for " . $appointment->service->name . " service scheduled for " . $appointment->date . " at " . $appointment->time .
-    //                         " Please arrived ahead of the scheduled time.",
-    //         'appointmentText' => "Check here.",
-    //         'url' => url('/'),
-    //         'thankyou' => 'We look forward to providing you with our healthcare services.'
-    //     ];
-    //     $user->notify(new AppointmentNotif($appointmentData));
-    //  }
-
-
-
-
-    //  $successMessage = $user->hasRole('patient')
-    //  ? 'Appointment request submitted successfully. Please check email for notification'
-    //  : 'Appointment added successfully.';
-
-    //     // return redirect('/appointment')->with('message', ' Appointment added successfully.');
-    //     return redirect('/appointment')->with('message', $successMessage);
-    // }
-
     public function store(Request $request)
 {
     $user = Auth::user();

@@ -13,7 +13,7 @@ use Spatie\Permission\Models\Role;
 class PatientController extends Controller
 {
     public function index(){
-        $patient = Patient::with([ 'user.roles'])->get();
+        $patient = Patient::with([ 'user.roles'])->orderBy('created_at','desc')->get();
         return view('patient.index', [
             'patient' => $patient
         ]);

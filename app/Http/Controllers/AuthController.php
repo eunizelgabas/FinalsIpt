@@ -81,8 +81,6 @@ class AuthController extends Controller
         $user->assignRole($patientRole);
         EmailVerification::dispatch($user);
 
-        $log_entry = $user->name . " registered in the system with the id# ". $patient->id;
-        event(new UserLog($log_entry));
 
         return redirect('/')->with('message', ' Your account has been created. Please check your email for the verification link.');
     }
