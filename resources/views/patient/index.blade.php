@@ -33,7 +33,7 @@
     </div>
     <div class="flex-1 pr-4">
         <div class="relative md:w-1/3">
-            <input type="search patient"
+            <input type="search"
                 class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                 placeholder="Search...">
             <div class="absolute top-0 left-0 inline-flex items-center p-2">
